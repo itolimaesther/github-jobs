@@ -1,16 +1,18 @@
 import React from 'react'
 import JobItem from '././JobItem'
 
-function Jobs({job}) {
-    
+function Jobs({filterJobs}) {
 
+    console.log(filterJobs)
+    
     return (
         <div className="cards">
-            {job && job.map((jb, idx) => {
-                return (
-                    <JobItem job={jb} key={idx} />
-                )
-            })}
+
+            {filterJobs && filterJobs.map((job, idx) => {
+              return (
+                <JobItem job={job} key={idx} />
+              )
+            }) }
         </div>
     )
 }

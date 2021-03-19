@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function Header({handleJobSearch, jobs, setJobs}) {
+function Header() {
 
     return (
         <div className=" my-5">

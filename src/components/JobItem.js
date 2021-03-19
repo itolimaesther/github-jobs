@@ -1,6 +1,6 @@
 import React from 'react'
 
-function JobItem({job}) {
+function JobItem({ job }) {
     
 
     return (

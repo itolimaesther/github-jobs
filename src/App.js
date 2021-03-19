@@ -11,13 +11,16 @@ function App() {
 
   const [jobs, setJobs] =  useState([])
   const [searchValue, setSearchValue] = useState("");
+  // const [filterJobs, setFilterJobs] = useState([])
 
+  
   
   useEffect(() => {
     axios.get('https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?search=node')
     .then(res => {
       const jobLists = res.data
       setJobs({jobLists})
+      // setSearchValue({jobLists})
     })
     .catch(err => {
       console.log(err)
@@ -35,15 +38,13 @@ function App() {
   }
 
 
-  const allJobs  = jobs.jobLists
+  const allJobs = jobs.jobLists
 
-  const filterJobs = allJobs && allJobs.filter(jb => {
-    return (
-      jb.title.toLowerCase().includes(searchValue.toLowerCase())
+  const filterJobs = allJobs && allJobs.filter((job) => {
+    return(
+      job.title.toString().toLowerCase().includes(searchValue.toString())
     )
   })
-
-  console.log(filterJobs)
 
 
   return (
@@ -62,12 +63,7 @@ function App() {
             <Location />
           </div>
           <div className="col-8">
-
-          {filterJobs && filterJobs.map((job) =>{
-            return (
-              <Jobs job={job} />
-            )
-          })}
+            <Jobs filterJobs={filterJobs} />
           </div>
         </div>
       </main>
