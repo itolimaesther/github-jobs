@@ -26,7 +26,6 @@ function Jobs() {
   }
 
   const handleSearchInputChanges = (e) => {
-    e.preventDefault();
     setSearchValue(e.target.value);
     resetInputField();
   }

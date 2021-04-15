@@ -1,4 +1,11 @@
 {
     "scm.alwaysShowRepositories": true,
     "scm.alwaysShowProviders": true,
+    "emmet.triggerExpansionOnTab": true,
+    "html-css-class-completion.enableEmmetSupport": true,
+    "emmet.includeLanguages": {
+        "react-html": "html",
+        "javascript": "javascriptreact",
+        "razor-html": "html"
+    },
 }
