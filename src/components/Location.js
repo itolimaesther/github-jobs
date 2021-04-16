@@ -1,11 +1,31 @@
-import React from 'react'
+import React, {useState} from "react"
 import WorldIcon from '@material-ui/icons/Public';
 
-function Location() {
+function Location({allJobs, filterJobs}) {
+
+
+    const [ filterList, setFilterList ] = useState([])
+    const FilteredByFulltime = (e) => {
+      setFilterList(e.target.checked)
+      if(e.target.checked === "Full time"){
+
+            filterJobs = allJobs && allJobs.filter((job) => {
+                return(
+                  job.type.includes(filterList)
+                  )
+                })
+      }
+
+        
+    }
+    
     return (
         <div className="location-container ">
             <form className="job-type d-flex">
-                <input className="checkbox-input" type="checkbox" />
+                <input className="checkbox-input" type="checkbox" 
+                    onClick = {FilteredByFulltime}
+                    checked={ filterList }
+                />
                 <label className="checkbox-input__label" >Full time</label>
             </form>
             <div className="location-wraper">

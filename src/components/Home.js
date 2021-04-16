@@ -28,7 +28,7 @@ function Home() {
                     </div>
                     <div className="col-3 second-col">
                         <img className="my-2" src={image3} alt=""/>
-                        <div className="bg-green w-100 h-25 rounded"></div>
+                        <div className="bg-green w-100 h-25 rounded-lg"></div>
                     </div>
                 </div>
             </div>

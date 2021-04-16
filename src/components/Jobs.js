@@ -14,30 +14,34 @@ function Jobs() {
     .then(res => {
       const jobLists = res.data
       setJobs({jobLists})
-      // setSearchValue({jobLists})
     })
     .catch(err => {
       console.log(err)
     })
   }, [])
 
-  const resetInputField = () => {
-    setSearchValue("")
-  }
 
   const handleSearchInputChanges = (e) => {
     setSearchValue(e.target.value);
-    resetInputField();
   }
 
 
   const allJobs = jobs.jobLists
+  console.log(allJobs)
 
-  const filterJobs = allJobs && allJobs.filter((job) => {
+  let filterJobs = allJobs && allJobs.filter((job) => {
     return(
-      job.title.toString().toLowerCase().includes(searchValue.toString())
+      job.title.toString().toLowerCase().includes(searchValue.toString()),
+      job.company.toString().toLowerCase().includes(searchValue.toString()),
+      job.benefit.toString().toLowerCase().includes(searchValue.toString()),
+      job.expertise.toString().toLowerCase().includes(searchValue.toString())
     )
   })
+
+ 
+
+
+
     
     return (
 
@@ -46,13 +50,15 @@ function Jobs() {
         jobs={jobs}
         searchValue={searchValue}
         handleSearch={handleSearchInputChanges}
-        resetInput={resetInputField}
       />
 
       <main>
         <div className="row">
           <div className="col">
-            <Location />
+            <Location 
+              allJobs={allJobs}
+              filterJobs={filterJobs}
+            />
           </div>
           <div className="col-8">
             {/* <Jobs filterJobs={filterJobs} /> */}
